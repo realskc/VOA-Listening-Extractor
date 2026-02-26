@@ -1,4 +1,5 @@
 import core.crawler as crawler
+import core.storage as storage
 
 if __name__ == "__main__":
     base_url = "https://learningenglish.voanews.com/z/955"
@@ -29,5 +30,9 @@ if __name__ == "__main__":
         else:
             print("未找到录音链接")
         print("="*60)
+        
+        # 保存文章到本地
+        article_folder = storage.save_article(article_data)
+        print(f"\n文章已保存至: {article_folder}")
     except RuntimeError as e:
         print(f"错误: {e}")
